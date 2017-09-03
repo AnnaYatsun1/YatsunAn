@@ -1,0 +1,7 @@
+<root>
+    <item name='org.junit.Assert void assertThat(T, org.hamcrest.Matcher&lt;? super T&gt;)'>
+        <annotation name='org.jetbrains.annotations.Contract'>
+            <val name="pure" val="true"/>
+        </annotation>
+    </item>
+</root>
