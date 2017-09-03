@@ -21,6 +21,11 @@ public class Max {
 
 
     }
+    public int max(int first, int second, int third){
+
+        //int smallest =Math.min(a, Math.min(c, b));
+        return Math.max(first, Math.max(third, second));
+    }
 
 }
   
