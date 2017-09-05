@@ -5,6 +5,7 @@ import java.util.Arrays;
  * Created by Анна on 04.09.2017.
  */
 public class Turn {
+    //сщьь
     public static int[] back(int[] array) {
         int length = array.length;
         int half = array.length / 2;
