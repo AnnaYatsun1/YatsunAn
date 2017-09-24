@@ -3,7 +3,7 @@ package ru.job4j.loop;
 /**
  * Created by Анна on 02.09.2017.
  */
-public class Board {
+public class Board  {
     public static String paint(int width, int height) {
 
         StringBuffer oddLine = new StringBuffer();

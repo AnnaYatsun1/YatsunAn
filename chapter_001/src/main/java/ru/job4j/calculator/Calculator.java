@@ -4,15 +4,18 @@ public class Calculator {
 
     private double result;
 
-    public void add(double first, double second) {
+    public void add(double first, double second)
+    {
         this.result = first + second;
     }
 
     public void subtract(double first, double second) {
+
         this.result = first - second;
     }
 
     public void div(double first, double second) {
+
         this.result = first / second;
     }
 
@@ -22,6 +25,7 @@ public class Calculator {
 
 
     public double getResult() {
+
         return this.result;
     }
 
