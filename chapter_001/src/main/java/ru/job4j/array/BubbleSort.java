@@ -1,4 +1,4 @@
-package ru.job4j.arrey;
+package ru.job4j.array;
 
 /**
  * Created by Анна on 05.09.2017.

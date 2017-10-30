@@ -1,10 +1,4 @@
 package ru.job4j.condition;
-import static org.junit.Assert.*;
-
-
-import org.junit.Assert;
-import org.junit.Test;
-import ru.job4j.loop.Paint;
 
 /**
  * Created by Анна on 03.09.2017.

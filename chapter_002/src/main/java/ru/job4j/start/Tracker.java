@@ -1,4 +1,4 @@
-package src.main.ru.job4j.Tracker;
+package ru.job4j.start;
 
 /**
  * Created by Анна on 26.09.2017.
@@ -73,5 +73,10 @@ public class Tracker {
         }
         return (Item[]) result.toArray();
     }
+
+
+//    public Item [] getAll(){
+//        Item result = new Item[this.position];
+//    }
 }
 
