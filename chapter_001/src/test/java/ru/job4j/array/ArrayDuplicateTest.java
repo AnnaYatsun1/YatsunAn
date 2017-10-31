@@ -16,7 +16,7 @@ public class ArrayDuplicateTest {
 
 
         String[] resultArray = {"Привет", "Мир", "Привет", "Супер", "Мир"};
-        String[] expectArray = {"Привет", "Мир", "Супер"};
+        String[] expectArray = {"Супер", "Мир", "Привет"};
         Assert.assertThat(new ArrayDuplicate().remove(resultArray), is(expectArray));
 
 
