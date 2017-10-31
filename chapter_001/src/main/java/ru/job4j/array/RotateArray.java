@@ -5,46 +5,29 @@ public class RotateArray {
 
     int[][]  rotate(int[][] array)
     {
+        int N=array.length;
+        for (int i = 0; i < N /2; i++) {
+                    for (int j = i; j <N-i-1 ; j++) {
+                       int tempvalue1 = array[i][j];
+                        array[i][j] = array[array.length - j - 1][i];
 
-        System.out.println("in: ");
-        print(array);
+                        int tempvalue2 = array[j][array.length - i - 1];
+                        array[j][array.length - i - 1] = tempvalue1;
 
-        int m = array.length;
+                        tempvalue1 = array[array.length - i - 1][array.length - j
+                                - 1];
+                        array[array.length - i - 1][array.length - j - 1] = tempvalue2;
+
+                        array[array.length - j - 1][i] = tempvalue1;
 
 
-        // fill matrix
-        for (int i=0; i<m; i++)
-        {
-            for (int j=0; j<m; j++)
-            {
-                array[i][j] = m*i + j;
             }
+
+
         }
 
-        for (int k=0; k<m/2; k++) // border -> centerjkfdhsdahf
-        {
-            for (int j=k; j<m-1-k; j++) // left -> right
-            {
-                // меняем местами 4 угла
-                int tmp         = array[k][j];
-                array[k][j]         = array[j][m-1-k];
-                array[j][m-1-k]     = array[m-1-k][m-1-j];
-                array[m-1-k][m-1-j] = array[m-1-j][k];
-                array[m-1-j][k]     = tmp;
-            }
-        }
-        System.out.println("out: ");
-        print(array);
         return array;
     }
 
-    private void print (int [] [] arr){
-        for (int[] ints : arr) {
-            System.out.println();
-            for (int anInt : ints) {
-                System.out.print(anInt+" ");
-            }
-        }
-        System.out.println();
-    }
+
 }

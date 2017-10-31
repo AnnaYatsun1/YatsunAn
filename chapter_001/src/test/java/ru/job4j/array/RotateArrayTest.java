@@ -19,7 +19,7 @@ import static org.junit.Assert.assertThat;
         public void whenRotateTwoRowTwoColArrayThenRotatedArray() {
             int[][] initial = {{1, 2},{3, 4}};
 
-            int[][] expected = {{3,1},{2,4}};
+            int[][] expected = {{3,1},{4,2}};
             Assert.assertThat(expected, is(new RotateArray().rotate(initial)));
 
             //Assert.assertThat(expected, is(RotateArray(initial)));
@@ -29,6 +29,11 @@ import static org.junit.Assert.assertThat;
 
         @Test
         public void whenRotateThreeRowThreeColArrayThenRotatedArray() {
+            int[][] initial = {{1, 2,3},{4, 5,6},{7,8,9}};
+
+            int[][] expected = {{7, 4,1},{8, 5,2},{9,6,3}};
+            Assert.assertThat(expected, is(new RotateArray().rotate(initial)));
+
             //напишите здесь тест, проверяющий поворот массива размером 3 на 3.
         }
     }
