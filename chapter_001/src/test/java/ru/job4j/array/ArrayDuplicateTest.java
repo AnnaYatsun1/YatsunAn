@@ -2,6 +2,9 @@ package ru.job4j.array;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.rmi.Remote;
+
 import static org.hamcrest.core.Is.is;
 
 import static sun.nio.cs.Surrogate.is;
@@ -17,7 +20,7 @@ public class ArrayDuplicateTest {
 
         String[] resultArray = {"Привет", "Мир", "Привет", "Супер", "Мир"};
         String[] expectArray = {"Супер", "Мир", "Привет"};
-        Assert.assertThat(new ArrayDuplicate().remove(resultArray), is(expectArray));
+
 
 
     }

@@ -12,11 +12,19 @@ import java.util.stream.Stream;
  */
 public class ArrayDuplicate {
     public String[] remove(String[] array) {
-//        Object [] distinct =  Stream.of(array).distinct().toArray();
-//        return  Arrays.copyOf(distinct, distinct.length, String[].class);
-        Set<String> set = new HashSet<>(Arrays.asList(array));
-        String[] result = set.toArray(new String[set.size()]);
+        int dublicate = array.length;
+        for (int out = 0; out <dublicate ; out++) {
+            for (int in = out+1; in <  dublicate; in++) {
+                if(array[out].equals(array[in])){
+                    array[in]=array[dublicate-1];
+                    dublicate--;
+                    in--;
 
-         return result;
+                }
+                
+            }
+            
+        }
+         return Arrays.copyOf(array,dublicate);
     }
 }
