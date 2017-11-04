@@ -8,23 +8,30 @@ import java.util.Random;
 
 public class Tracker {
 
-    private Item[] items = new Item[100];
+    private Task[] tasks = new Task[10];
     public int position = 0;
     private static final Random RN = new Random();
 
-    public Item add(Item item) {
-        item.setId(this.generatedId());
-        this.items[position] = item;
-        return item;
+    public Task add(Task task) {
+        task.setId(this.generatedId());
+        this.tasks[position] = task;
+        return task;
 
     }
+    public void edit(Task fresh){
+        for (Task task : tasks){
+            if(task != null && task.getId().equals(fresh.getId()));
+            task =fresh;
+            break;
+        }
+    }
 
-    public Item findById(String id) {
-        Item result = null;
-        for (Item item : items) {
+    public Task findById(String id) {
+        Task result = null;
+        for (Task task : tasks) {
 
-            if (item != null && item.getId().equals(id)) {
-                result = item;
+            if (task != null && task.getId().equals(id)) {
+                result = task;
                 break;
             }
         }
@@ -32,51 +39,52 @@ public class Tracker {
     }
 
     String generatedId() {
+
         return String.valueOf(RN.nextInt());
     }
 
-    public void update(Item item) {
+    public void update(Task task) {
 
-        for (int i = 0; i < items.length; i++) {
-            if (items[i] != null && items[i].getId().equals(item.getId())) {
-                items[i]=item ;
+        for (int i = 0; i < tasks.length; i++) {
+            if (tasks[i] != null && tasks[i].getId().equals(task.getId())) {
+                tasks[i]= task;
                 break;
             }
         }
     }
 
-    public void delete(Item item) {
-        Item result = null;
-        for (Item item1 : items) {
+    public void delete(Task task) {
+        Task result = null;
+        for (Task task1 : tasks) {
 
-            if (item != null && item.getId().equals(generatedId())) {
+            if (task != null && task.getId().equals(generatedId())) {
                 result = null;
                 break;
             }
         }
     }
 
-    public Item[] findAll() {
-        Item[] result = new Item[position];
+    public Task[] findAll() {
+        Task[] result = new Task[position];
         for (int index = 0; index != this.position; index++) {
-            result[index] = this.items[index];
+            result[index] = this.tasks[index];
         }
         return result;
     }
 
-    public Item[] findByName(String key) {
-        ArrayList<Item> result = new ArrayList<>();
-        for (Item item : items) {
-            if (item.getName().equals(key)) {
-                result.add(item);
+    public Task[] findByName(String key) {
+        ArrayList<Task> result = new ArrayList<>();
+        for (Task task : tasks) {
+            if (task.getName().equals(key)) {
+                result.add(task);
             }
         }
-        return (Item[]) result.toArray();
+        return (Task[]) result.toArray();
     }
 
 
-//    public Item [] getAll(){
-//        Item result = new Item[this.position];
+//    public Task [] getAll(){
+//        Task result = new Task[this.position];
 //    }
 }
 

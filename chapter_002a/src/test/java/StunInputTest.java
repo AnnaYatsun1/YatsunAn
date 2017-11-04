@@ -1,11 +1,3 @@
-import org.junit.Test;
-import ru.job4j.start.ConsoleInput;
-import ru.job4j.start.Input;
-import ru.job4j.start.Item;
-import ru.job4j.start.Tracker;
-
-import static com.sun.org.apache.xerces.internal.util.PropertyState.is;
-
 /**
  * Created by Анна on 28.10.2017.
  */
@@ -23,7 +15,7 @@ public class StunInputTest {
 //        // создаём Tracker
 //        Tracker tracker = new Tracker();
 //        //Напрямую добавляем заявку
-//        Item item = tracker.add(new Item());
+//        Task item = tracker.add(new Task());
 //        //создаём StubInput с последовательностью действий
 //        Input input = new StubInput(new String[]{"1", item.getId(), "test name", "desc", "6"});
 //        // создаём StartUI и вызываем метод init()

@@ -4,7 +4,7 @@ package ru.job4j.start;
  * Created by Анна on 26.09.2017.
  */
 
-public class Item {
+public class Task {
 
 
     private String id;
@@ -12,13 +12,23 @@ public class Item {
     public long created;
     public String[] comments;
 
-    //    public Item(String id, String name, String desc, long created,String[] comments){
-//        this.id=id;
-//        this.name=name;
-//        this.desc=desc;
-//        this.created=created;
-//        this.comments=comments;
-//    }
+
+    public Task(String name, String desc) {
+        this.name = name;
+        this.desc = desc;
+    }
+
+    public Task() {
+    }
+
+    public Task(String id, String name, String desc, long created, String[] comments) {
+        this.id = id;
+        this.name = name;
+        this.desc = desc;
+        this.created = created;
+        this.comments = comments;
+    }
+
     public String getId() {
 
         return this.id;
