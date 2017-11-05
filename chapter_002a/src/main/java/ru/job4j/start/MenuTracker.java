@@ -18,9 +18,9 @@ public class MenuTracker {
         this.actions[0]= this.new AddItem();
         this.actions[1]= new MenuTracker.ShowItems();
         this.actions[2]= new EditItem();
-      //  this.actions[3] = new DeleteItem();
-       // this.actions[4] = new FindItemById();
-     //   this.actions[5] = new FindItemsByName();
+        this.actions[3] = new DeleteItem();
+        this.actions[4] = new FindItemById();
+        this.actions[5] = new FindItemsByName();
 
 
     }
@@ -89,9 +89,8 @@ public class MenuTracker {
         @Override
         public void execute(Input input, Tracker tracker) {
             String id = input.ask("Please entre he task id");
-            Task   task = new Task();
-            task.setId(id);
-            tracker.delete(task);
+            tracker.deleteById(id);
+
 
         }
 
@@ -111,8 +110,6 @@ public class MenuTracker {
         @Override
         public void execute(Input input, Tracker tracker) {
             String id = input.ask("Please entre he task name");
-            Task   task = new Task();
-            task.setId(id);
             tracker.findById(id);
 
 
@@ -123,27 +120,25 @@ public class MenuTracker {
             return String.format("%s. %s", this.key(), "Find by Id");
         }
     }
-//    public class FindItemsByName implements UserAction{
-//
-//        @Override
-//        public int key() {
-//            return 5;
-//        }
-//
-//        @Override
-//        public void execute(Input input, Tracker tracker) {
-//            String name = input.ask("Please entre he task name");
-//           // Task   task = new Task();
-//           // task.setName(name);
-//            tracker.findByName(name);
-//
-//        }
-//
-//        @Override
-//        public String info() {
-//            return String.format("%s. %s", this.key(), "Find by Name");
-//        }
-//    }
+    public class FindItemsByName implements UserAction{
+
+        @Override
+        public int key() {
+            return 5;
+        }
+
+        @Override
+        public void execute(Input input, Tracker tracker) {
+            String name = input.ask("Please entre the task name");
+            tracker.findByName(name);
+
+        }
+
+        @Override
+        public String info() {
+            return String.format("%s. %s", this.key(), "Find by Name");
+        }
+    }
 }
 class EditItem implements UserAction{
     public int key() {

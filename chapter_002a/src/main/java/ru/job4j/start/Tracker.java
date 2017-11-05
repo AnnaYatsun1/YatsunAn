@@ -54,14 +54,29 @@ public class Tracker {
     }
 
     public void delete(Task task) {
-        Task result = null;
-        for (Task task1 : tasks) {
-
-            if (task != null && task.getId().equals(generatedId())) {
-                result = null;
+        if(task == null) return;
+        for (int i = 0; i <tasks.length ; i++) {
+            if(task.getId().equals(tasks[i].getId())){
+                tasks[i]=null;
                 break;
             }
+
         }
+
+
+    }
+    public void deleteById( String id) {
+        if( id == null) return;
+        for (int i = 0; i <tasks.length ; i++) {
+            if(id.equals(tasks[i].getId())){
+                tasks[i]=null;
+                break;
+            }
+
+        }
+
+
+
     }
 
     public Task[] findAll() {
