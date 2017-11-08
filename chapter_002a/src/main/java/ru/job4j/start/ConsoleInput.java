@@ -9,15 +9,15 @@ public class ConsoleInput implements Input {
     private Scanner scanner = new Scanner(System.in);
     @Override
     public String ask(String question) {
-        System.out.println(question);
-        return scanner.next() ;
+        System.out.print(question);
+        return scanner.nextLine() ;
     }
     public String askName(String question) {
-        System.out.println(question);
-        return scanner.next() ;
+        System.out.print(question);
+        return scanner.nextLine() ;
     }
     public String askId(String question) {
-        System.out.println(question);
-        return scanner.next() ;
+        System.out.print(question);
+        return scanner.nextLine() ;
     }
 }

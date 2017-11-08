@@ -17,6 +17,14 @@ public class Task {
         this.name = name;
         this.desc = desc;
     }
+    public Task(String id, String name, String desc,  String[] comments){
+        this.id = id;
+        this.name = name;
+        this.desc = desc;
+        this.comments = comments;
+
+    }
+
 
     public Task() {
     }

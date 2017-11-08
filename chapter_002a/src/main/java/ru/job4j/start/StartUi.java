@@ -3,6 +3,11 @@ package ru.job4j.start;
 
 import com.sun.javafx.tk.Toolkit;
 import com.sun.org.apache.bcel.internal.generic.Select;
+import com.sun.xml.internal.bind.v2.model.core.ID;
+
+import javax.sound.midi.Track;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Анна on 10.10.2017.
@@ -39,47 +44,90 @@ public class StartUi {
         private static final String Show_all_items = "1";
         private static final String Edit_item = "2";
         private static final String Delete_item = "3";
-        private static final String Find_item_by_Id = "4";
-        private static final String Find_items_by_name = "5";
-        private static final String EXIT = "6";
+        private static final String DeleteBy_Id = "4";
+        private static final String Find_item_by_Id = "5";
+        private static final String Find_items_by_name = "6";
+        private static final String EXIT = "7";
 
     public static void main(String[] args) {
         ConsoleInput consoleInput = new ConsoleInput();
-        //String name = consoleInput.ask("Please enter the tasks");
         Tracker tracker = new Tracker();
-        Task item = new Task();
-
         boolean isActive = true;
+        System.out.println("Show menu");
+        System.out.println("0. Add");
+        System.out.println("1. Show all");
+        System.out.println("2. Edit_item");
+        System.out.println("3. Delete_item");
+        System.out.println("4. DeleteBy_Id");
+        System.out.println("5. Find_item_by_Id");
+        System.out.println("6. Find_items_by_name");
+        System.out.println("7. Exit");
 
         while (isActive) {
-            switch (consoleInput.ask("Please enter the tasks")) {
+       System.out.println();
+            String answer = consoleInput.ask("Select menu :");
+            switch (answer) {
                 case ADD_NEW_ITEM:
-                    String askName = consoleInput.askName("Ввдите ваше имя");
-                    tracker.add(item);
+                    System.out.println("========= Добаваление новой заявки в Traker ========");
+                    String name = consoleInput.askName("Ввдите ваше имя");
+                    String desc = consoleInput.askName("Введите описания завки");
+                    Task task = new Task(name, desc);
+                    tracker.add(task);
+                    System.out.println("========= Добавалена новая задача с id : " + task.getId() );
+
                     break;
                 case Show_all_items:
-                    tracker.findAll();
-                    break;
+                    Task[] tasks = tracker.findAll();
+                    for (Task value : tasks) {
+                        System.out.println(value.getId() + " " + value.getName() + " " + value.getDesc());
+                    }
+                 break;
+
                 case Edit_item:
-                    tracker.update(item);
-                    break;
-                case Delete_item:
-                    tracker.delete(item);
-                    break;
-                case Find_item_by_Id:
-                    String askId = consoleInput.askName("Ввдите ваше ID");
-                    tracker.findById(askId);
+                    System.out.println("========= Редактирование  завки ========");
+                    String idEdit =consoleInput.askId("Веедите ваш ID завки");
+                    //Task resultEdit= tracker.findById(idEdit);
+                    String nameEdit = consoleInput.askName("Ввдите ваше имя");
+                    String descEdit = consoleInput.askName("Введите описания завки");
+                    Task taskEdit = new Task(nameEdit, descEdit);
+                    tracker.update(tracker.findById(idEdit));
+                    System.out.println("========= Добавалена новая задача с id : " );
+
+
+
+                      break;
+           case Find_item_by_Id:
+                    System.out.println("========= Найти заявку по id ========");
+                    String id =consoleInput.askId("Веедите ваш ID");
+                   Task result= tracker.findById(id);
+                    System.out.println("========Заявка по id " +result);
                     break;
                 case Find_items_by_name:
-                    tracker.findByName("jhsdgf");
+                    System.out.println("========= Найти заявку по имени ========");
+                    String nameInTrake = consoleInput.askName("Введите ваше имя");
+                     Task[] nameresult =tracker.findByName(nameInTrake);
+                    for (Task value : nameresult) {
+                        System.out.println(value.getId() + " " + value.getName() + " " + value.getDesc());
+                    }
+
                     break;
+                case DeleteBy_Id:
+                    System.out.println("===========Удаление заявки==============");
+                    String idTask =consoleInput.askId("Веедите  ID заявки которую вы хлотиде удалить");
+                    tracker.deleteById(idTask);
+                   break;
+                case Delete_item:
+                    System.out.println("========= Удаление заявки задачи ========");
+                    String nameForDel = consoleInput.askName("Ввдите ваше имя");
+                    String descForDel = consoleInput.askName("Enter desk");
+                    Task task1 = new Task(nameForDel, descForDel);
+                    tracker.delete(task1);
+                    break;
+
                 case EXIT:
                     isActive = false;
                     break;
-
             }
-
-
         }
     }
 }

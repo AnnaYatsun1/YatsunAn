@@ -14,7 +14,7 @@ public class Tracker {
 
     public Task add(Task task) {
         task.setId(this.generatedId());
-        this.tasks[position] = task;
+        this.tasks[position++] = task;
         return task;
 
     }
@@ -62,8 +62,6 @@ public class Tracker {
             }
 
         }
-
-
     }
     public void deleteById( String id) {
         if( id == null) return;
@@ -74,9 +72,6 @@ public class Tracker {
             }
 
         }
-
-
-
     }
 
     public Task[] findAll() {
