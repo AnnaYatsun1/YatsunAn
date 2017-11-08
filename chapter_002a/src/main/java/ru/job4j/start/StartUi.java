@@ -79,7 +79,9 @@ public class StartUi {
                 case Show_all_items:
                     Task[] tasks = tracker.findAll();
                     for (Task value : tasks) {
-                        System.out.println(value.getId() + " " + value.getName() + " " + value.getDesc());
+                        if (value != null) {
+                            System.out.println(value.getId() + " " + value.getName() + " " + value.getDesc());
+                        }
                     }
                  break;
 

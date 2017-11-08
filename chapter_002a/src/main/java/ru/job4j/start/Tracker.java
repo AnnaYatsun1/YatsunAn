@@ -3,6 +3,7 @@ package ru.job4j.start;
 /**
  * Created by Анна on 26.09.2017.
  */
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -18,10 +19,11 @@ public class Tracker {
         return task;
 
     }
-    public void edit(Task fresh){
-        for (Task task : tasks){
-            if(task != null && task.getId().equals(fresh.getId()));
-            task =fresh;
+
+    public void edit(Task fresh) {
+        for (Task task : tasks) {
+            if (task != null && task.getId().equals(fresh.getId())) ;
+            task = fresh;
             break;
         }
     }
@@ -47,31 +49,39 @@ public class Tracker {
 
         for (int i = 0; i < tasks.length; i++) {
             if (tasks[i] != null && tasks[i].getId().equals(task.getId())) {
-                tasks[i]= task;
+                tasks[i] = task;
                 break;
             }
         }
     }
 
     public void delete(Task task) {
-        if(task == null) return;
-        for (int i = 0; i <tasks.length ; i++) {
-            if(task.getId().equals(tasks[i].getId())){
-                tasks[i]=null;
-                break;
+        if (task == null) return;
+        for (int i = 0; i < tasks.length; i++) {
+            if (tasks[i] != null && task.getId().equals(tasks[i].getId())) {
+                tasks[i] = null;
+
+
             }
 
+            break;
         }
+
     }
-    public void deleteById( String id) {
-        if( id == null) return;
-        for (int i = 0; i <tasks.length ; i++) {
-            if(id.equals(tasks[i].getId())){
-                tasks[i]=null;
-                break;
+
+    public void deleteById(String id) {
+        if (id == null) return;
+        for (int i = 0; i < tasks.length; i++) {
+            if (tasks[i] != null && id.equals(tasks[i].getId())) {
+                tasks[i] = null;
+
+
             }
 
+
+            break;
         }
+
     }
 
     public Task[] findAll() {
