@@ -26,8 +26,7 @@ public class Task {
     }
 
 
-    public Task() {
-    }
+
 
     public Task(String id, String name, String desc, long created, String[] comments) {
         this.id = id;
@@ -36,6 +35,11 @@ public class Task {
         this.created = created;
         this.comments = comments;
     }
+    public String toString()
+    {
+        return this.getName()+" "+this.getId()+" "+this.desc;
+    }
+
 
     public String getId() {
 
@@ -74,6 +78,7 @@ public class Task {
 
     public void setCreated(long created)
     {
+
         this.created = created;
     }
 

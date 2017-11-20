@@ -5,4 +5,5 @@ package ru.job4j.start;
  */
 public interface Input {
     String ask(String question);
+    String ask(String qustion, String[] vars) ;
 }

@@ -1,5 +1,6 @@
 package ru.job4j.start;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 /**
@@ -11,6 +12,22 @@ public class ConsoleInput implements Input {
     public String ask(String question) {
         System.out.print(question);
         return scanner.nextLine() ;
+    }
+    public  String ask(String qustion, String[] range) throws MenuOutExeption  {
+        String key =this.ask(qustion);
+            boolean exist = false;
+            for (String value : range){
+                if(Objects.equals(value, key)){
+                    exist = true;
+                    break;
+                }
+        }
+        if (exist){
+            return key;
+        }else {
+          throw new MenuOutExeption("out of menu range");
+          //  msg.printStackTrace();
+        }
     }
     public String askName(String question) {
         System.out.print(question);

@@ -5,15 +5,22 @@ package ru.job4j.start;
  */
 public class StubInput implements Input {
     private String[] answers;
-    private int position =0;
+    private int position = 0;
 
-    public StubInput(String[] answers, int position) {
+    public StubInput(String[] answers) {
         this.answers = answers;
-        this.position = position;
+
     }
 
     @Override
     public String ask(String question) {
         return answers[position++];
+    }
+
+
+
+    public  String ask(String qustion, String[] vars){
+        //return String.valueOf(-1);
+        throw new UnsupportedOperationException("Unsuport operation");
     }
 }

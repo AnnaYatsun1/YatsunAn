@@ -48,7 +48,7 @@ public class Tracker {
     public void update(Task task) {
 
         for (int i = 0; i < tasks.length; i++) {
-            if (tasks[i] != null && tasks[i].getId().equals(task.getId())) {
+            if (tasks[i] != null && task.getId().equals(tasks[i].getId())) {
                 tasks[i] = task;
                 break;
             }
@@ -74,12 +74,9 @@ public class Tracker {
         for (int i = 0; i < tasks.length; i++) {
             if (tasks[i] != null && id.equals(tasks[i].getId())) {
                 tasks[i] = null;
-
-
+                break;
             }
 
-
-            break;
         }
 
     }
@@ -92,19 +89,17 @@ public class Tracker {
         return result;
     }
 
-    public Task[] findByName(String key) {
-        ArrayList<Task> result = new ArrayList<>();
+    public Task findByName(String name) {
+        Task resul = null;
         for (Task task : tasks) {
-            if (task.getName().equals(key)) {
-                result.add(task);
+            if (task.getName().equals(name)) {
+                resul = task;
+                break;
             }
         }
-        return (Task[]) result.toArray();
+        return resul;
+
     }
 
-
-//    public Task [] getAll(){
-//        Task result = new Task[this.position];
-//    }
 }
 

@@ -8,23 +8,28 @@ package ru.job4j.start;
 public class MenuTracker {
     private Input input;
     private Tracker tracker;
-    private UserAction[] actions = new UserAction[5];
+    private UserAction[] actions = new UserAction[7];
+    private int position =0;
 
     public MenuTracker(Input input, Tracker tracker) {
         this.input = input;
         this.tracker = tracker;
     }
     public void fillAction(){
-        this.actions[0]= this.new AddItem();
-        this.actions[1]= new MenuTracker.ShowItems();
-        this.actions[2]= new EditItem();
-        this.actions[3] = new DeleteItem();
-        this.actions[4] = new FindItemById();
-        this.actions[5] = new FindItemsByName();
+        this.actions[position++]= this.new AddItem();
+        this.actions[position++]= new MenuTracker.ShowItems();
+        this.actions[position++]= new EditItem();
+        this.actions[position++] = new DeleteItem();
+        this.actions[position++] = new FindItemById();
+        this.actions[position++] = new FindItemsByName();
+   }
 
+   public void addAction(UserAction action){
+        this.actions[position++]= action;
 
-    }
+   }
     public void select(int key){
+
         this.actions[key].execute(this.input, this.tracker);
     }
     public void show(){
