@@ -22,18 +22,29 @@ public class Rook extends Figure {
     }
 
     @Override
-    public boolean checkShapesTheWay(Cell source, Cell dest, Figure[][] desc) throws MoveNotValidException {
-        for (int i = source.getX(); i <= dest.getX(); i++) {
-            for (int j = source.getY(); j < dest.getY(); j++) {
-                if (desc[i][j] != null) {
-                    desc[i][j]=desc[source.getX()][dest.getY()];
-                }
+    public boolean checkShapesTheWay(Cell source, Cell dest, Figure[][] desc) {
+        int xDelta = dest.getX() - source.getX();
+        int yDelta = dest.getY() - source.getY();
 
+
+        if (xDelta != 0) {
+            for (int i = source.getX() + 1; i < source.getX() + xDelta; i++) {
+                if (desc[i][source.getY()] != null) {
+                    return false;
+                }
             }
         }
+
+        if (yDelta != 0) {
+            for (int i = source.getY() + 1; i < source.getY() + yDelta; i++) {
+                if (desc[source.getX()][i] != null) {
+                    return false;
+                }
+            }
+        }
+
         return true;
     }
-
 
     @Override
     public String toString() {

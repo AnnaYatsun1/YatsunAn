@@ -17,8 +17,8 @@ public abstract class Figure {
         this.position = position;
     }
 
-    public abstract boolean isMoveValid(Cell source, Cell dist, Figure[][] desc);
-    public abstract boolean checkShapesTheWay(Cell source, Cell dest,Figure[][] desc  ) throws MoveNotValidException;
+    public abstract boolean isMoveValid(Cell source, Cell dest, Figure[][] desc);
+    public abstract boolean checkShapesTheWay(Cell source, Cell dest,Figure[][] desc);
 
     public Cell getPosition() {
 
