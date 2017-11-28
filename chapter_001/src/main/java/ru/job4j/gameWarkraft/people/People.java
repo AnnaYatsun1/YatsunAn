@@ -8,5 +8,6 @@ import ru.job4j.gameWarkraft.Common;
 public class People extends Common {
     public People(int lifes, boolean privileged) {
         super(lifes, privileged);
+
     }
 }

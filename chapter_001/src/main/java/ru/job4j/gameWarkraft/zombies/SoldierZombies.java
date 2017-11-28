@@ -1,5 +1,6 @@
 package ru.job4j.gameWarkraft.zombies;
 
+import ru.job4j.gameWarkraft.Common;
 import ru.job4j.gameWarkraft.intarface.Soldier;
 
 /**
@@ -7,8 +8,18 @@ import ru.job4j.gameWarkraft.intarface.Soldier;
  */
 public class SoldierZombies extends Zombi implements Soldier {
     int lifes = 100;
+
+    public SoldierZombies(int lifes, boolean privileged) {
+        super(lifes, privileged);
+    }
+
     @Override
-    public void attackWithSword() {
+    public void attackWithSword(Common common) {
+
         int hit=18;
+    }
+    @Override
+    public int getLife() {
+        return 100;
     }
 }

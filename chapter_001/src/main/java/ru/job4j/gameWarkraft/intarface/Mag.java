@@ -8,7 +8,7 @@ import ru.job4j.gameWarkraft.Common;
 public interface Mag {
 
     public void buf(Common common) ;
-
-    public void magiDamage();
-    public void aCurse();
+    public int getLife();
+    public void magiDamage(Common common);
+    public void aCurse(Common common);
 }

@@ -1,11 +1,14 @@
 package ru.job4j.gameWarkraft.elves;
 
+import ru.job4j.gameWarkraft.Common;
 import ru.job4j.gameWarkraft.intarface.Bowman;
 
 /**
  * Created by Анна on 22.11.2017.
  */
 public class BowmanElfs extends Elves implements Bowman {
+    int  hpArchery=7;
+   int hpAttacTheEnemy=3;
 
 
     public BowmanElfs(int lifes, boolean privileged) {
@@ -17,34 +20,32 @@ public class BowmanElfs extends Elves implements Bowman {
     }
 
     @Override
-    public void archery() {
-       double  hpArchery=7;
+    public void archery(Common common) {
+
+
        if(isPrivileged()==true){
-           hpArchery=hpArchery*1/5;
+           hpArchery= (int) (hpArchery*1.5);
+
+           common.setLifes(common.getLifes() - hpArchery);
        }
+        common.setLifes(common.getLifes() - hpArchery);
 
 
+    }
+    @Override
+    public int getLife() {
+        return 100;
     }
 
     @Override
-    public void attackTheEnemy() {
-        double hpAttacTheEnemy=3;
+    public void attackTheEnemy(Common common) {
+
         if(isPrivileged()==true){
-            hpAttacTheEnemy=hpAttacTheEnemy*1/5;
+            hpAttacTheEnemy= (int) (hpAttacTheEnemy*1.5);
+            common.setLifes(common.getLifes() - hpAttacTheEnemy);
         }
+        common.setLifes(common.getLifes() - hpAttacTheEnemy);
 
     }
 
-//    @Override
-//    public void archery() {
-//
-//        int  hpArchery=7;
-//    }
-//
-//    @Override
-//    public void attackTheEnemy() {
-//
-//        int hpEnemy=3;
-//
-//    }
 }

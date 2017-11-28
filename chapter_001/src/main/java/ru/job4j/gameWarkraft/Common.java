@@ -10,30 +10,39 @@ import ru.job4j.gameWarkraft.zombies.Zombi;
 /**
  * Created by Анна on 24.11.2017.
  */
-public class Common  {
-    public int lifes = 100;
-
-    public int getLifes() {
-        return lifes;
-    }
-
-    public void setLifes(int lifes) {
-        this.lifes = lifes;
-    }
-
-    public boolean isPrivileged() {
-        return privileged;
-    }
-
-    public void setPrivileged(boolean privileged) {
-        this.privileged = privileged;
-    }
-
+public class Common {
+    int lifes = 100;
     boolean privileged;
 
     public Common(int lifes, boolean privileged) {
         this.lifes = lifes;
         this.privileged = privileged;
+    }
+
+    public int getLifes() {
+
+        return lifes;
+    }
+
+    public void setLifes(int lifes) {
+
+        this.lifes = lifes;
+    }
+
+    public boolean isPrivileged() {
+
+        return privileged;
+    }
+
+    public void setPrivileged(boolean privileged) {
+
+        this.privileged = privileged;
+    }
+
+    public int damage() {
+
+        return 0;
+
     }
 
 

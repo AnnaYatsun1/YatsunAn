@@ -28,9 +28,9 @@ public class Triangle {
      * @param right Точка с права.
      * @return расстояние между точками left и right.
      */
-    public double distance(Point left, Point right) {
-        return Math.sqrt(Math.pow((left.getX() - right.getX()), 2) + Math.pow((left.getY() - right.getY()), 2));
-    }
+//    public double distance(Point left, Point right) {
+//        return Math.sqrt(Math.pow((left.getX() - right.getX()), 2) + Math.pow((left.getY() - right.getY()), 2));
+//    }
 
     /**
      * Метод вычисления периметра по длинам сторон.
@@ -45,6 +45,7 @@ public class Triangle {
      * @return Перимент.
      */
     public double period(double ab, double ac, double bc) {
+
         return (ab + ac + bc) / 2;
     }
 
@@ -59,15 +60,15 @@ public class Triangle {
      *
      * @return Вернуть прощадь, если треугольник существует или -1.
      */
-    public double area() {
-
-        double ab = this.distance(this.a, this.b);
-        double ac = this.distance(this.a, this.c);
-        double bc = this.distance(this.b, this.c);
-        double p = this.period(ab, ac, bc);
-        double rsl = Math.sqrt(p * (p - ab) * (p - bc) * (p - ac));
-
-        return rsl < EXIST_EPSILON ? -1 : rsl;
-    }
+//    public double area() {
+//
+//        double ab = this.distance(this.a, this.b);
+//        double ac = this.distance(this.a, this.c);
+//        double bc = this.distance(this.b, this.c);
+//        double p = this.period(ab, ac, bc);
+//        double rsl = Math.sqrt(p * (p - ab) * (p - bc) * (p - ac));
+//
+//        return rsl < EXIST_EPSILON ? -1 : rsl;
+//    }
 
 }
