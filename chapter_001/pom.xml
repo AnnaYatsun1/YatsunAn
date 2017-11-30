@@ -8,6 +8,7 @@
             <artifactId>xbean-reflect</artifactId>
             <version>3.4</version>
         </dependency>
+
     </dependencies>
     <packaging>jar</packaging>
     <parent>
