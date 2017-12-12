@@ -89,6 +89,7 @@ public class Tracker {
         return result;
     }
 
+
     public Task findByName(String name) {
         Task resul = null;
         for (Task task : tasks) {
@@ -101,13 +102,6 @@ public class Tracker {
 
     }
 
-//    public Task[] findAll() {
-//        Task[] result = new Task[position];
-//        for (int index = 0; index != this.position; index++) {
-//            result[index] = this.tasks[index];
-//        }
-//        return result;
-//    }
 
 }
 

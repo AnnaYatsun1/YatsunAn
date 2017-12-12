@@ -1,6 +1,7 @@
 package ru.job4j.gameWarkraft;
 
 
+import com.sun.org.apache.xpath.internal.operations.Or;
 import ru.job4j.gameWarkraft.orks.BowmanOrks;
 import ru.job4j.gameWarkraft.orks.Orks;
 import ru.job4j.gameWarkraft.orks.Shaman;
@@ -18,54 +19,30 @@ import java.util.*;
 public class Game {
 
 
-    public void random() {
-
-
-        double a1 = 1 + Math.random() * 2;
-        //     System.out.println(a1);
-        //  if (a1 >= 1 && a1 <= 2) {
-        System.out.println("На арену выходит расса орков");
-        Squad<Orks> orks = new Squad<>();
-        orks.magList.add(0, new
-
-                Shaman(100, true));
-        orks.bowmanList.add(0, new
-
-                BowmanOrks(100, true));
-        orks.bowmanList.add(1, new
-
-                BowmanOrks(100, true));
-        orks.soldierList.add(0, new
-
-                SoldierOrks(100, true));
-        orks.soldierList.add(1, new
-
-                SoldierOrks(100, true));
-        orks.soldierList.add(2, new
-
-                SoldierOrks(100, true));
-
-
-    }
-
 
     public Squad<People> peopleSquad() {
 
 
         Squad<People> people = new Squad<>();
-//            people.peopleList.add(new MagPeolple(100, true));
-//            people.peopleList.add(new BowmanPeople(100, true));
-//            people.peopleList.add(new BowmanPeople(100, true));
-//            people.peopleList.add(new SoldierPeople(100, true));
-//            people.peopleList.add(new SoldierPeople(100, true));
-//            people.peopleList.add(new SoldierPeople(100, true));
-//            people.magList.add(0, new MagPeolple(100, true));
+
         people.bowmanList.add(0, new BowmanPeople(100, true));
         people.bowmanList.add(1, new BowmanPeople(100, true));
         people.soldierList.add(0, new SoldierPeople(100, true));
         people.soldierList.add(1, new SoldierPeople(100, true));
         people.soldierList.add(2, new SoldierPeople(100, true));
         return people;
+
+    }
+
+    public Squad<Orks> orksSquad() {
+        Squad<Orks> orks = new Squad<>();
+        orks.magList.add(0, new Shaman(100, true));
+        orks.bowmanList.add(0, new BowmanOrks(100, true));
+        orks.bowmanList.add(1, new BowmanOrks(100, true));
+        orks.soldierList.add(0, new SoldierOrks(100, true));
+        orks.soldierList.add(1, new SoldierOrks(100, true));
+        orks.soldierList.add(2, new SoldierOrks(100, true));
+        return orks;
 
     }
 
@@ -138,14 +115,16 @@ public class Game {
             int item6 = new Random().nextInt(size6);
             orks.soldierList.get(item6);
             orks.soldierList.get(item5).attackWithSword((Common) people.bowmanList.get(item6));
+
         }
 
     }
 
     public static void main(String[] args) {
         Game game = new Game();
-        Squad<Orks> orks = new Squad<>();
-        Squad<People> people =game.peopleSquad();
+     //   Squad<Orks> orks = new Squad<>();
+        Squad<People> people = game.peopleSquad();
+    Squad<Orks> orks = game.orksSquad();
         game.figt(people, orks);
     }
 
