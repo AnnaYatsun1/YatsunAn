@@ -33,7 +33,7 @@ public class Bank {
             user = entry.getKey();
             List<Account> valueList = entry.getValue();
             for (Account account1 : valueList) {
-                valueList.add(account1);
+                valueList.add(account1);///
             }
 
         }
