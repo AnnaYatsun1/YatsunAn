@@ -2,7 +2,7 @@ package ru.job4j.MapForBank;
 
 import java.util.*;
 
-public class Tasks {
+public class Bank {
     Map<User, List<Account>> mapList;
     Scanner scanner = new Scanner(System.in);
     protected int summsDeneg;

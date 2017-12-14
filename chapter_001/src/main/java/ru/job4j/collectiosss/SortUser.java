@@ -31,12 +31,11 @@ public class SortUser {
         list.sort(new Comparator<User>() {
             @Override
             public int compare(User o1, User o2) {
-                if (o1.getName().length() > o2.getName().length())
-                    return 1;
-                if (o1.getName().length() < o2.getName().length())
-                    return -1;
-                else
-                    return 0;
+                Integer a = new Integer(o1.getName().length());
+                Integer b = new Integer(o2.getName().length());
+
+                  return a.compareTo(b);
+
             }
         });
         System.out.println(list);
@@ -54,19 +53,13 @@ public class SortUser {
         list.sort(new Comparator<User>() {
             @Override
             public int compare(User o1, User o2) {
-                if (o1.name.compareTo(o2.name) == 1) {
-                    return 1;
-                }
-                if (o1.name.compareTo(o2.name) == -1) {
-                    return -1;
-                } else if (Integer.valueOf(o1.age) > Integer.valueOf(o2.age) && o1.name.compareTo(o2.name) == 0) {
-                    return 1;
-                } else if (Integer.valueOf(o1.age) < Integer.valueOf(o2.age) && o1.name.compareTo(o2.name) == 0) {
-                    return -1;
-                } else
-                    return 0;
 
+                if(o1.getName().compareTo(o2.getName())!=0){
+                return o1.getName().compareTo(o2.getName());
             }
+                else
+                        return o1.age.compareTo(o2.age);
+        }
         });
         System.out.println(list);
         return list;
@@ -78,8 +71,8 @@ public class SortUser {
 
     public  static class User implements Comparable<User> {
 
+        Integer age ;
 
-        int age;
 
         @Override
         public String toString() {
