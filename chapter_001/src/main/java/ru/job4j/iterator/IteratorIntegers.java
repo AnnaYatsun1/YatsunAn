@@ -19,6 +19,7 @@ public class IteratorIntegers implements Iterator {
     public boolean hasNext() {
 
             return numbers[position]%2==0;
+            ////
     }
 
     @Override
