@@ -5,36 +5,31 @@ import java.util.*;
 
 
 public class SortUser {
-    Set<User> sort(List<User> list) {
-        list = new ArrayList<User>();
-        list.add(new User(10, "Bob"));
-        list.add(new User(15, "Sam"));
-        list.add(new User(8, "Grek"));
-        // Set<User> set = new TreeSet<User>(list);
 
-        //  Collections.sort(list);
-        //  System.out.println((set));
-        // return set;
+    public List<User> addToArray(List<User> list){
+        list = new ArrayList<User>();
+        list.add(new User(10, "Bobasasasas"));
+        list.add(new User(15, "Sam"));
+        list.add(new User(4, "Grek"));
+        list.add(new User(25, "Grek11"));
+        list.add(new User(8, "Grek112655454545"));
+        return list;
+    }
+    Set<User> sort(List<User> list) {
+
         return new TreeSet(list);
     }
 
 
         public List<User> sortNameLength(List<User> list) {
-        list = new ArrayList<User>();
-        list.add(new User(10, "Bobasasasas"));
-        list.add(new User(15, "Sam"));
-        list.add(new User(8, "Grek"));
-        list.add(new User(8, "Grek11"));
-        list.add(new User(8, "Grek112655454545"));
-
 
         list.sort(new Comparator<User>() {
             @Override
             public int compare(User o1, User o2) {
-                Integer a = new Integer(o1.getName().length());
-                Integer b = new Integer(o2.getName().length());
+                return o1.getnameLeng.compareTo(o2.getnameLeng);
 
-                  return a.compareTo(b);
+
+               //   return a.compareTo(b);
 
             }
         });
@@ -43,13 +38,9 @@ public class SortUser {
 
     }
 
+
       public List<User> sortByAllFields(List<User> list) {
-        list = new ArrayList<User>();
-        list.add(new User(10, "Bobasasasas"));
-        list.add(new User(15, "Sam"));
-        list.add(new User(4, "Grek"));
-        list.add(new User(25, "Grek11"));
-        list.add(new User(8, "Grek112655454545"));
+
         list.sort(new Comparator<User>() {
             @Override
             public int compare(User o1, User o2) {
@@ -71,7 +62,8 @@ public class SortUser {
 
     public  static class User implements Comparable<User> {
 
-        Integer age ;
+        Integer age;
+
 
 
         @Override
@@ -94,12 +86,15 @@ public class SortUser {
         }
 
         public String getName() {
+
+
             return name;
         }
-
+        Integer getnameLeng = getName().length();
 
         @Override
         public int compareTo( User o) {
+
             if (this.getAge() > o.getAge())
                 return 1;
             if (this.getAge() < o.getAge())
@@ -107,7 +102,6 @@ public class SortUser {
             else
                 return 0;
         }
-
 
 
 

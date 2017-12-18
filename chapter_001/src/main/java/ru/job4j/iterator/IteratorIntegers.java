@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 public class IteratorIntegers implements Iterator {
     int position = 0;
-    int element;
+
     int sum = 0;
 
     public IteratorIntegers(final int[] numbers) {
@@ -17,17 +17,25 @@ public class IteratorIntegers implements Iterator {
 
     @Override
     public boolean hasNext() {
+        if (numbers[position] % 2 == 0)
+            return true;
+        else
+            return false;
 
-            return numbers[position]%2==0;
-            ////
     }
 
     @Override
     public Object next() {
-        if (position < numbers.length&&numbers[++position]%2==0 )
-            return numbers[position];
-        else return next();
+        int element = 0;
+        int position = 0;
+     for (int x = 0; x < numbers.length; x++) {
+            if (numbers[position] % 2 == 0) {
+                element = numbers[position];
+                System.out.println(element);
+            }
 
 
+    }
+        return element;
     }
 }

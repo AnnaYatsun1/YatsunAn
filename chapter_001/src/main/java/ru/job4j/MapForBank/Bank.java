@@ -4,12 +4,9 @@ import java.util.*;
 
 public class Bank {
     Map<User, List<Account>> mapList;
-    Scanner scanner = new Scanner(System.in);
-    protected int summsDeneg;
-    ArrayList<Account> accountsList;
-    private User user;
 
-    public void addUser(User user) {
+
+    public void addUser(User user, ArrayList<Account> accountsList ) {
         if (mapList == null) {
             accountsList= new ArrayList<>();
             mapList.put(user, accountsList);
