@@ -4,51 +4,27 @@ import java.util.*;
 
 public class Bank {
     Map<User, List<Account>> mapList = new HashMap<>();
+    List<User> users = new LinkedList<User>();
 
 
     public void addUser(User user, ArrayList<Account> accountsList ) {
-        if (mapList == null) {
-            accountsList= new ArrayList<>();
-            mapList.put(user, accountsList);
-        }
+
+        mapList.put(user, accountsList);
 
     }
 
     public void deleteUser(User user) {
-        for (Map.Entry<User, List<Account>> entry : mapList.entrySet()) {
-            if (entry.getValue().contains(user)) {// contains ищем есть ли у нас значение по ключу или по значению если нет нам вернет тру
-                if (user.getPassport() != null && mapList.get(user.getPassport()).equals(user.getPassport())) {
-                    entry.getValue().remove(user);
-                    break;
-                }
-            }
-        }
+        mapList.remove(user);
     }
 
     public void addAccountToUser(User user, Account account) {
-        for (Map.Entry<User, List<Account>> entry : mapList.entrySet()) {
-            user = entry.getKey();
-            List<Account> valueList = entry.getValue();
-            for (Account account1 : valueList) {
-                valueList.add(account1);///
-            }
-
-        }
-
+           mapList.get(user).add(account);
 
     }
 
 
     public void deleteAccountFromUser(User user, Account account) {
-        for (Map.Entry<User, List<Account>> entry : mapList.entrySet()) {
-            user = entry.getKey();
-            List<Account> valueList = entry.getValue();
-            for (Account account1 : valueList) {
-                valueList.remove(account1);
-
-            }
-
-        }
+       mapList.get(user).remove(account);
     }
 
     public List<Account> getUserAccounts(User user) {

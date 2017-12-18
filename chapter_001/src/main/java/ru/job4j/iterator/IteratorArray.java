@@ -8,6 +8,7 @@ public class IteratorArray implements Iterator {
     final int[][] value;
     int row = 0;
     int cell = 0;
+    int position = 0, position2 = 0;
 
 
     public IteratorArray(final int[][] value) {
@@ -19,26 +20,32 @@ public class IteratorArray implements Iterator {
     @Override
     public boolean hasNext() {
 
-        return this.value[row].length >cell || this.value.length>row;
+
+        //   this.value[position].length > cell || this.value.length > position;
+
+
+        return this.value[position].length > position2 || this.value.length > position;
 
     }
 
 
     @Override
     public Object next() {
-        try {
-            if (hasNext()) {
-                return value[row++][row];
-            }
-        }
-        catch (NullPointerException ex){
-            System.out.println(ex);
-        }
 
-        return value;
+        if (hasNext()) {
+            if (position2 < value[position].length) {
+                return value[position][position2++];
+            } else {
+                position2 = 0;
+                return value[++position][position2++];
+            }
+
+
+
+
+        }
+        return hasNext();
+
 
     }
-
-
-
 }
