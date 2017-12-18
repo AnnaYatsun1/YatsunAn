@@ -11,8 +11,11 @@ public class IteratorIntegersTest {
         IteratorIntegers it = new IteratorIntegers(new int[]{16,9, 11,  2, 4, 8, 10, 7, 16, 5, 200, 15, 50});
         int result = (int) it.next();
         assertThat(result, is(16));
-      result = (int) it.next();
+        result = (int) it.next();
         assertThat(result, is(2));
+        result = (int) it.next();
+        assertThat(result, is(4));
+
 
 
 

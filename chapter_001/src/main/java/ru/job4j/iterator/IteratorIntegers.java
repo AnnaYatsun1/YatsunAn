@@ -9,6 +9,7 @@ public class IteratorIntegers implements Iterator {
 
     public IteratorIntegers(final int[] numbers) {
         this.numbers = numbers;
+
     }
 
     //    Iterator it = new IteratorIntegers(new int[]{4, 2, 1, 1});
@@ -17,25 +18,26 @@ public class IteratorIntegers implements Iterator {
 
     @Override
     public boolean hasNext() {
-        if (numbers[position] % 2 == 0)
-            return true;
-        else
-            return false;
+        while (!isEven(this.numbers[position])) {
+            position++;
+        }
 
+        return true;
+
+    }
+
+    private boolean isEven(int number) {
+        return number % 2 == 0;
     }
 
     @Override
     public Object next() {
-        int element = 0;
-        int position = 0;
-     for (int x = 0; x < numbers.length; x++) {
-            if (numbers[position] % 2 == 0) {
-                element = numbers[position];
-                System.out.println(element);
-            }
 
+        if (hasNext()) {
+            return this.numbers[position++];
 
+        }
+        return hasNext();
     }
-        return element;
-    }
+
 }

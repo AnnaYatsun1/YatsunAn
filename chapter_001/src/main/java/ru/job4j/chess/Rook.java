@@ -1,7 +1,6 @@
 package ru.job4j.chess;
 
-import ru.job4j.exeptions.MoveNotValidException;
-import sun.invoke.empty.Empty;
+
 
 /**
  * Created by Анна on 15.11.2017.

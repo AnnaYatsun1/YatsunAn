@@ -3,7 +3,7 @@ package ru.job4j.MapForBank;
 import java.util.*;
 
 public class Bank {
-    Map<User, List<Account>> mapList;
+    Map<User, List<Account>> mapList = new HashMap<>();
 
 
     public void addUser(User user, ArrayList<Account> accountsList ) {
