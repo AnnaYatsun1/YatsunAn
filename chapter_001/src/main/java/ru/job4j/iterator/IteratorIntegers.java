@@ -4,11 +4,15 @@ import java.util.Iterator;
 
 public class IteratorIntegers implements Iterator {
     int position = 0;
+    int lengthOfArray= 0;
 
     int sum = 0;
 
     public IteratorIntegers(final int[] numbers) {
         this.numbers = numbers;
+        for (int i = 0; i < numbers.length; i++) {
+                 lengthOfArray = numbers.length;
+                 }
 
     }
 
@@ -33,11 +37,9 @@ public class IteratorIntegers implements Iterator {
     @Override
     public Object next() {
 
-        if (hasNext()) {
             return this.numbers[position++];
 
-        }
-        return hasNext();
+
     }
 
 }

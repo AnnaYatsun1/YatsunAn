@@ -16,20 +16,13 @@ public class IteratorArray implements Iterator {
 
     }
 
-
     @Override
     public boolean hasNext() {
-
-
-        //   this.value[position].length > cell || this.value.length > position;
-
 
         return this.value[position].length > position2 || this.value.length > position;
 
     }
-
-
-    @Override
+   @Override
     public Object next() {
 
         if (hasNext()) {
@@ -39,9 +32,6 @@ public class IteratorArray implements Iterator {
                 position2 = 0;
                 return value[++position][position2++];
             }
-
-
-
 
         }
         return hasNext();
