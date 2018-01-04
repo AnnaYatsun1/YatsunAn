@@ -11,7 +11,7 @@ public class PrimeItTest {
         int result = (int) it.next();
         assertThat(result, is(1));
         result = (int) it.next();
-        assertThat(result, is(3));
+        assertThat(result, is(2));
 //        result = (int) it.next();
 //        assertThat(result, is(11));
 

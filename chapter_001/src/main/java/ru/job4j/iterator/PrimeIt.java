@@ -3,46 +3,43 @@ package ru.job4j.iterator;
 import java.util.Iterator;
 
 public class PrimeIt implements Iterator {
-    final int[] value;
-    int positiom;
+    public int position = 0;
 
-
-    public PrimeIt(int[] value) {
-        this.value = value;
+    public PrimeIt(int[] numners) {
+        this.numners = numners;
     }
 
+    int[] numners;
+
     private static int primeNumber(int number) {
-        for (int i = 2; i < number; i++) {
+        for (int i = 2; i < Math.sqrt(number); i++) {
             if (number % i == 0) {
                 return 0;
             }
+        }
+        return 1;
+    }
 
-            if ((i > Math.sqrt(number))) {
-                return 1;
+    public boolean hasNext() {
+        for (int i = position; i < numners.length-1; i++) {
+            if (primeNumber(numners[i]) == 1) {
+                return true;
             }
         }
-        return 0;
+        return false;
     }
 
-    @Override
-    public boolean hasNext() {
-        for (int i = 0; i < value.length; i++) {
-            if (primeNumber(value[i]) == 1) {
-                value[i]=value[i];
+    public Integer next() {
+        for (int i = position; i < numners.length; i++) {
+            if (primeNumber(numners[i]) == 1) {
+                position =  i == numners.length ?  i :  i + 1;
+                return numners[i];
             }
-
-        return true;
-
+        }
+        return -1;
     }
 
-
-
-    @Override
-    public Object next() {
-
-        return this.value[positiom++];
-
+    public void remove() {
 
     }
-
 }
