@@ -1,10 +1,11 @@
 package ru.job4j.iterator;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class IteratorIntegers implements Iterator {
     int position = 0;
-    int lengthOfArray= 0;
+    int lengthOfArray = 0;
 
     int sum = 0;
 
@@ -26,8 +27,7 @@ public class IteratorIntegers implements Iterator {
             }
 
             return true;
-        }
-        catch (IndexOutOfBoundsException e){
+        } catch (IndexOutOfBoundsException e) {
             System.out.println("Index out-of-bounds");
 
         }
@@ -41,10 +41,14 @@ public class IteratorIntegers implements Iterator {
 
     @Override
     public Object next() {
+        try {
+            if (hasNext())
+                return this.numbers[position++];
+        } catch (NoSuchElementException e){
+            System.out.println("not element");
+        }
 
-            return this.numbers[position++];
-
-
+        return hasNext();
     }
 
 }
