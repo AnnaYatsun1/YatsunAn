@@ -7,5 +7,5 @@ public interface Store<T extends Base> {
 
     boolean delete(String id);
 
-    T findById(String id);
+    Object findById(String id);
 }

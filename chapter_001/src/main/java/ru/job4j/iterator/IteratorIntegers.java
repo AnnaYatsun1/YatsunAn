@@ -10,9 +10,7 @@ public class IteratorIntegers implements Iterator {
 
     public IteratorIntegers(final int[] numbers) {
         this.numbers = numbers;
-        for (int i = 0; i < numbers.length; i++) {
-                 lengthOfArray = numbers.length;
-                 }
+
 
     }
 
@@ -22,12 +20,19 @@ public class IteratorIntegers implements Iterator {
 
     @Override
     public boolean hasNext() {
-        while (!isEven(this.numbers[position])) {
-            position++;
+        try {
+            while (!isEven(this.numbers[position])) {
+                position++;
+            }
+
+            return true;
+        }
+        catch (IndexOutOfBoundsException e){
+            System.out.println("Index out-of-bounds");
+
         }
 
         return true;
-
     }
 
     private boolean isEven(int number) {

@@ -1,17 +1,18 @@
 package ru.job4j.generic;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class SimpleArray<T > {
-    int index = 0;
-    Object[] objects;
+public class SimpleArray<T> implements Iterable<T> {
+    private int index = 0;
+    protected T[] objects;
 
     public int getIndex() {
         return index;
     }
 
-    public SimpleArray(Object[] objects) {
+    public SimpleArray(T[] objects) {
         this.objects = objects;
     }
 
@@ -23,7 +24,7 @@ public class SimpleArray<T > {
         return (T) this.objects[position];
     }
 
-    public void delete(T value) {
+    public void delete(T value, int position) {
         for (int i = 0; i < objects.length; i++) {
             if (objects[i] != null && value.equals(objects[i])) {
                 objects[i] = null;
@@ -34,12 +35,39 @@ public class SimpleArray<T > {
     }
 
     public void update(T value) {
-        for (int i = 0; i <objects.length; i++) {
-            if(value.equals(objects[i])){
-                objects[i]=value;
+        for (int i = 0; i < objects.length; i++) {
+            if (value.equals(objects[i])) {
+                objects[i] = value;
                 break;
             }
 
         }
     }
+
+    public int indexOf(T value) {
+        return -1;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        while (iterator().hasNext()) {
+            return (Iterator<T>) objects[index++];
+        }
+        return iterator();
+    }
+
+    public boolean hasNext() {
+
+        return objects.length > index;
+
+    }
+
+
+    public Object next() {
+        return objects[index++];
+
+
+    }
+
+
 }
