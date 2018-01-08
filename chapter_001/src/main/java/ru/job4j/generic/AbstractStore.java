@@ -16,7 +16,7 @@ public abstract class AbstractStore<T extends Base> implements Store<T> {
         simpleArray.add(model);
     }
 
-    //
+    //////
     public boolean replace(String id, T model) {
         for(T obj: this.simpleArray){
         if(this.simpleArray!=null && obj.getId().equals(model.getId())){
