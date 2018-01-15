@@ -5,7 +5,7 @@ public interface Store<T extends Base> {
 
     boolean replace(String id, T model);
 
-    boolean delete(String id);
+    boolean delete(T id);
 
     Object findById(String id);
 }
