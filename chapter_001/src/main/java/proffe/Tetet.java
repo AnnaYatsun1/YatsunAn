@@ -5,32 +5,44 @@ import ru.job4j.iterator.IteratorArray;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class Tetet {
-    public static void main(String[] args) {
-        int[] arr = new int[]{3, 7, 0, -24, 0, 8, -14, 5, -100, 36, 12,11, 1};
-        for (int i = 0; i < arr.length; i++) {
-            if (primeNumber(arr[i]) == 1) {
-                System.out.print(arr[i] );
-            }
+    static ArrayList<String> removeDuplicates(ArrayList<String> list) {
 
+        // Store unique items in result.
+        ArrayList<String> result = new ArrayList<>();
+
+        // Record encountered Strings in HashSet.
+        HashSet<String> set = new HashSet<>();
+
+        // Loop over argument list.
+        for (String item : list) {
+
+            // If String is not in set, add it to the list and the set.
+            if (!set.contains(item)) {
+                result.add(item);
+                set.add(item);
+            }
         }
+        return result;
     }
 
-    private static int primeNumber(int number) {
-        for (int i = 2; i < number; i++) {
-            if (number % i == 0) {
-                return 0;
-            }
 
-            if ((i > Math.sqrt(number))) {
-                return 1;
-            }
+    public static void main(String[] args) {
+
+        ArrayList<String> list = new ArrayList<>();
+        list.add("dog");
+        list.add("cat");
+        list.add("dog");
+        list.add("dog");
+        list.add("cat");
+        list.add("bird");
+
+        // Remove duplicates from ArrayList of Strings.
+        ArrayList<String> unique = removeDuplicates(list);
+        for (String element : unique) {
+            System.out.println(element);
         }
-        return 0;
     }
 }

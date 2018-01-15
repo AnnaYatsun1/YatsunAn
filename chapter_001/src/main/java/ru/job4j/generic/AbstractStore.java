@@ -13,6 +13,7 @@ public abstract class AbstractStore<T extends Base> implements Store<T> {
 
     //
     public void add(T model) {
+
         simpleArray.add(model);
     }
 
