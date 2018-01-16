@@ -1,30 +1,35 @@
 package ru.job4j.list;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 public class SimpleSeet implements SimpleContainer<String> {
     int lengh;
     int position;
     String[] mass = new String[lengh];
 
+    public SimpleSeet(int lengh, int position, String[] mass) {
+        this.lengh = lengh;
+        this.position = position;
+        this.mass = mass;
+    }
 
-  @Override
+
+    @Override
     public void add(String item) {
-      if(!contains(item)){
-              mass[position++]=item;
+        if (!contains(item)) {
+            mass[position++] = item;
             //  position++;
-            }
+        }
 
     }
 
 
-    public  boolean contains( String v) {
+    public boolean contains(String v) {
         for (final String e : mass)
-            if (v != null && v.equals(e))
+            if (v != null && v.equals(e)) {
                 return true;
+            }
+
 
         return false;
     }
@@ -49,10 +54,16 @@ public class SimpleSeet implements SimpleContainer<String> {
 
             @Override
             public String next() {
-                return null;
+                if (hasNext()) {
+                    return mass[position++];
+                }
+
+                throw new NoSuchElementException();
+
             }
         };
     }
+
     Set<String> set = new HashSet<String>(Arrays.asList(mass));
 
 }

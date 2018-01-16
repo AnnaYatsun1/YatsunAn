@@ -1,6 +1,7 @@
 package ru.job4j.iterator;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class PrimeIt implements Iterator {
     public int position = 0;
@@ -11,32 +12,32 @@ public class PrimeIt implements Iterator {
 
     int[] numners;
 
-    private static int primeNumber(int number) {
+    private static boolean primeNumber(int number) {
         for (int i = 2; i < Math.sqrt(number); i++) {
             if (number % i == 0) {
-                return 0;
+                return false;
             }
         }
-        return 1;
+        return true;
     }
 
     public boolean hasNext() {
-        for (int i = position; i < numners.length-1; i++) {
-            if (primeNumber(numners[i]) == 1) {
-                return true;
+        for (int i = position; i < numners.length; i++) {
+            if (!primeNumber(numners[i])) {
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     public Integer next() {
         for (int i = position; i < numners.length; i++) {
-            if (primeNumber(numners[i]) == 1) {
-                position =  i == numners.length ?  i :  i + 1;
+            if (primeNumber(numners[i])) {
+                position = i+1;
                 return numners[i];
             }
         }
-        return -1;
+        throw new NoSuchElementException();
     }
 
     public void remove() {
