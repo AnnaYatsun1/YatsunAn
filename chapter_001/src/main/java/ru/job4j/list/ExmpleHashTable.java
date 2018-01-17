@@ -48,6 +48,7 @@ public class ExmpleHashTable<E, T> {
         if (hashtableKeys.contains(o)) {
             hashtableKeys.remove(o);
             return true;
+            //
         }
         return false;
     }
