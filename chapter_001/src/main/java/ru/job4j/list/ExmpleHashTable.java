@@ -7,10 +7,11 @@ import java.util.Set;
 
 public class ExmpleHashTable<E, T> {
 
-        Hashtable<E, T> hm = new Hashtable<>();
-        T a ;
-        E b;
+    Hashtable<E, T> hm = new Hashtable<>();
+    T a;
+    E b;
     Set hashtableKeys = hm.keySet();
+
     public void put() {
         hm.put(b, a);
 
@@ -33,17 +34,21 @@ public class ExmpleHashTable<E, T> {
             hashtableKeys.add(o);
             return true;
         } else
-         return false;
+            return false;
     }
 
-private boolean contains(Integer v, Set hashtableKeys ) {
-    return hashtableKeys.contains(v);
+    private boolean contains(Integer v, Set hashtableKeys) {
+        return hashtableKeys.contains(v);
 
 
-}
-//
+    }
 
-//    public boolean remove(Object o) {
-//        return false;
-//    }
+
+    public boolean remove(E o) {
+        if (hashtableKeys.contains(o)) {
+            hashtableKeys.remove(o);
+            return true;
+        }
+        return false;
+    }
 }
