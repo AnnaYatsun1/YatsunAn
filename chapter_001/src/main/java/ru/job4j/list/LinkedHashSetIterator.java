@@ -36,7 +36,7 @@ public class LinkedHashSetIterator implements SimpleContainer<String> {
 
             @Override
             public String next() {
-                if(hasNext()){
+                for (int i = 0; i < linkedHashSet.size(); i++) {
                     return String.valueOf(linkedHashSet);
                 }
 
