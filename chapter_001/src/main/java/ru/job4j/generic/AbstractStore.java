@@ -19,14 +19,17 @@ public abstract class AbstractStore<T extends Base> implements Store<T> {
 
     //////
     public boolean replace(String id, T model) {
-        for(T obj: this.simpleArray){
-        if(this.simpleArray!=null && obj.getId().equals(model.getId())){
-            obj=model;
-            break;
+        for (int i = 0; i < simpleArray.objects.length; i++) {
+            if (simpleArray.objects[i] != null && model.getId().equals(simpleArray.objects[i].getId())) {
+                simpleArray.objects[i]=model;
+                return true;
+
+            }
         }
-      }
-        return true;
+        return false;
     }
+
+
 
     public boolean delete(T id) {
         for (int i = 0; i <simpleArray.objects.length ; i++) {

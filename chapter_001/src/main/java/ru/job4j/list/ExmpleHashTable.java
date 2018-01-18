@@ -5,51 +5,44 @@ import java.util.Hashtable;
 import java.util.Map;
 import java.util.Set;
 
-public class ExmpleHashTable<E, T> {
+public class ExmpleHashTable<E> {
 
-    Hashtable<E, T> hm = new Hashtable<>();
-    T a;
+    Hashtable<E , String> hm = new Hashtable<>();
+    String a =" ";
     E b;
-    Set hashtableKeys = hm.keySet();
-
     public void put() {
         hm.put(b, a);
 
     }
-
-//        hm.put(100, "Amit");
 //        hm.put(102, "Ravi");
 //        hm.put(101, "Vijay");
 //        hm.put(103, "Rahul");
 //        System.out.println(hm);
 
 
-//        for (Map.Entry m : hm.entrySet()) {
-//            System.out.println(m.getKey() + " " + m.getValue());
-//        }
-
     public boolean add(E o) {
-
-        if (!hashtableKeys.contains(o)) {
-            hashtableKeys.add(o);
+        if (!hm.containsKey(o)){
+            hm.put(o, " ");
             return true;
-        } else
+        }
+        else
             return false;
+
     }
 
-    private boolean contains(Integer v, Set hashtableKeys) {
-        return hashtableKeys.contains(v);
+    private boolean contains(E v) {
+        return hm.containsKey(v);
 
 
     }
 
 
     public boolean remove(E o) {
-        if (hashtableKeys.contains(o)) {
-            hashtableKeys.remove(o);
+        if (hm.containsKey(o)) {
+            hm.remove(o);
             return true;
-            //
         }
         return false;
     }
+    Set hashtableKeys = hm.keySet();
 }
