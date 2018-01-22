@@ -7,7 +7,7 @@ import java.util.*;
 public class SimpleSet implements SimpleContainer<String> {
    private int position=0;
    private LinkedList<String> al = new LinkedList<>();
-
+///
 
     @Override
     public void add(String item) {
