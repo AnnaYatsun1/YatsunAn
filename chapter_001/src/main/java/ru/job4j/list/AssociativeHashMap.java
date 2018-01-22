@@ -16,20 +16,20 @@ public class AssociativeHashMap<K, V>  {
 
 
     public Iterator<K> keys() {
-        LinkedList l = new LinkedList();			//linked list to store all the keys
-        for (int i = 0; i < arr.length; i++)		//input keys into l
+        LinkedList l = new LinkedList();
+        for (int i = 0; i < arr.length; i++)
         {
             l.addLast(i);
         }
-        return l.iterator();						//return an iterator of the keys
+        return l.iterator();
     }
 
     public Iterator<V> values()
     {
-        LinkedList l = new LinkedList();			//linked list to store all the values
-        for (int i = 0; i < arr.length; i++)		//input values for each key into l
+        LinkedList l = new LinkedList();
+        for (int i = 0; i < arr.length; i++)
         {
-            if (arr[i] != null)					//if the key has values, insert them into the list
+            if (arr[i] != null)
             {
                 Node<K,V> temp = arr[i];
                 while (temp != null)
@@ -39,7 +39,7 @@ public class AssociativeHashMap<K, V>  {
                 }
             }
         }
-        return l.iterator();						//return an iterator of the values
+        return l.iterator();						
     }
 
     class Node<K, V> {
