@@ -14,10 +14,7 @@ public class ExmpleHashTable<E> {
         hm.put(b, a);
 
     }
-//        hm.put(102, "Ravi");
-//        hm.put(101, "Vijay");
-//        hm.put(103, "Rahul");
-//        System.out.println(hm);
+
 
 
     public boolean add(E o) {
