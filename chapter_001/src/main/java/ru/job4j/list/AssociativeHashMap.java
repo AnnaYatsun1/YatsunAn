@@ -4,9 +4,10 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Objects;
 
-public class AssociativeHashMap<K, V>  {
+public class AssociativeHashMap<K, V> {
     private final int size = 16;
     private Node<K, V>[] arr;
+    LinkedList l = new LinkedList();
 
     public AssociativeHashMap() {
 
@@ -14,37 +15,52 @@ public class AssociativeHashMap<K, V>  {
     }
 
 
-
     public Iterator<K> keys() {
-        LinkedList l = new LinkedList();
-        for (int i = 0; i < arr.length; i++)
-        {
-            l.addLast(i);
+
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i]!= null){
+                Node<K, V> temp1 = arr[i];
+                while (temp1!=null){
+                    l.addLast(temp1.getKey());
+                    temp1=temp1.next;
+                }
+
+            }
         }
         return l.iterator();
     }
 
-    public Iterator<V> values()
-    {
-        LinkedList l = new LinkedList();
-        for (int i = 0; i < arr.length; i++)
-        {
-            if (arr[i] != null)
-            {
-                Node<K,V> temp = arr[i];
-                while (temp != null)
-                {
+    public Iterator<V> values() {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != null) {
+                Node<K, V> temp = arr[i];
+                while (temp != null) {
                     l.addLast(temp.getVal());
                     temp = temp.next;
                 }
             }
         }
-        return l.iterator();						
+        return l.iterator();
     }
 
     class Node<K, V> {
 
         private int index;
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Node<?, ?> node = (Node<?, ?>) o;
+            return Objects.equals(key, node.key);
+        }
+
+        @Override
+        public int hashCode() {
+
+            return Objects.hash(key);
+        }
+
         protected K key;
         private V value;
         private Node<K, V> next;
@@ -53,32 +69,15 @@ public class AssociativeHashMap<K, V>  {
             this.key = key;
             this.value = value;
         }
-        public K getKey()
-        {
+
+        public K getKey() {
             return key;
         }
-        public V getVal()
-        {
+
+        public V getVal() {
             return value;
         }
 
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            Node<?, ?> node = (Node<?, ?>) o;
-            return index == node.index &&
-                    Objects.equals(key, node.key) &&
-                    Objects.equals(value, node.value) &&
-                    Objects.equals(next, node.next);
-        }
-
-        @Override
-        public int hashCode() {
-
-            return Objects.hash(index, key, value, next);
-        }
 
         private int getHashCodeForKey(K key) {
             int result = 7;
@@ -88,7 +87,7 @@ public class AssociativeHashMap<K, V>  {
         public V get(K key) {
 
             int hashcode = getHashCodeForKey(key);
-            int index = hashcode & size;
+            int index = hashcode % size;
             Node head = arr[index];
             while (head != null) {
                 if (head.key == key) return (V) head.value;
@@ -104,10 +103,9 @@ public class AssociativeHashMap<K, V>  {
             int index = hashcode & size;
 
             if (arr[index] == null) {
-              //  throw new NullPointerException("key == null");
+                //  throw new NullPointerException("key == null");
                 return false;
-            }
-            else {
+            } else {
                 Node head = arr[index];
                 curr.next = head;
                 return true;
@@ -124,7 +122,6 @@ public class AssociativeHashMap<K, V>  {
             }
             return false;
         }
-
 
 
     }

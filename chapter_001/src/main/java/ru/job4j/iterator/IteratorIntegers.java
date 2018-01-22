@@ -4,51 +4,42 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class IteratorIntegers implements Iterator {
-        int position = 0;
-        int lengthOfArray = 0;
+    int position = 0;
+    final int[] numbers;
 
-        int sum = 0;
+    int sum = 0;
 
-        public IteratorIntegers(final int[] numbers) {
-            this.numbers = numbers;
-
-
-        }
-
-        //    Iterator it = new IteratorIntegers(new int[]{4, 2, 1, 1});
-        final int[] numbers;
-
-
-        @Override
-        public boolean hasNext() {
-            try {
-                while (!isEven(this.numbers[position])) {
-                    position++;
-                }
-
-                return true;
-            } catch (IndexOutOfBoundsException e) {
-                System.out.println("Index out-of-bounds");
-
-            }
-
-            return true;
-        }
-
-        private boolean isEven(int number) {
-            return number % 2 == 0;
-        }
-
-        @Override
-        public Object next() {
-            try {
-                if (hasNext())
-                    return this.numbers[position++];
-            } catch (NoSuchElementException e){
-                System.out.println("not element");
-            }
-
-            return hasNext();
-        }
+    public IteratorIntegers(final int[] numbers) {
+        this.numbers = numbers;
 
     }
+
+
+    @Override
+    public boolean hasNext() {
+        for (int i = 0; i < numbers.length; i++) {
+            if (isEven(i)) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+
+    private boolean isEven(int number) {
+        return number % 2 == 0;
+    }
+
+    @Override
+    public Integer next() {
+        for (int i = 0; i < numbers.length; i++) {
+            if (isEven(i)) {
+                position = i + 1;
+                return this.numbers[i];
+            }
+
+        }
+        throw new NoSuchElementException();
+    }
+
+}
