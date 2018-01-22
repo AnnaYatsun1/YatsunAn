@@ -10,7 +10,7 @@ public  abstract class Base  {
         Base base = (Base) o;
         return Objects.equals(id, base.id);
     }
-
+///
     @Override
     public int hashCode() {
 
