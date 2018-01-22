@@ -17,7 +17,7 @@ public abstract class AbstractStore<T extends Base> implements Store<T> {
         simpleArray.add(model);
     }
 
-    //////
+////
     public boolean replace(String id, T model) {
         for (int i = 0; i < simpleArray.objects.length; i++) {
             if (simpleArray.objects[i] != null && model.getId().equals(simpleArray.objects[i].getId())) {
@@ -30,7 +30,7 @@ public abstract class AbstractStore<T extends Base> implements Store<T> {
     }
 
 
-
+///
     public boolean delete(T id) {
         for (int i = 0; i <simpleArray.objects.length ; i++) {
             simpleArray.delete(id,i );
