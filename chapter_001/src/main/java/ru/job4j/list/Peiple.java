@@ -26,8 +26,8 @@ public class Peiple {
         this.birthday = birthday;
     }
     public static void main(String[] args) {
-        Peiple peiple = new Peiple("Ahjsdfh", 2, 5, 18, 1992);
-        Peiple peiple2 = new Peiple("Ahjsdfh", 2, 12, 26, 1990);
+        Peiple peiple = new Peiple("Ahjsdfh", 2, 5, 18, 1990);
+        Peiple peiple2 = new Peiple("Ahjsdfh", 2, 5, 18, 1990);
         Map<Peiple, Object> map = new HashMap<>();
         map.put(peiple, new Object());
         map.put(peiple2, new Object());
