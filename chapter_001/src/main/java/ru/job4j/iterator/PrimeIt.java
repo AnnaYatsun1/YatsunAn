@@ -29,6 +29,7 @@ public class PrimeIt implements Iterator {
         }
         return true;
     }
+    ////
 
     public Integer next() {
         for (int i = position; i < numners.length; i++) {
