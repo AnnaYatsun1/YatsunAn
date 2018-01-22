@@ -22,7 +22,7 @@ public class IteratorIntegers implements Iterator {
                 return true;
             }
         }
-        
+
         return false;
     }
 
