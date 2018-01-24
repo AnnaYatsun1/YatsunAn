@@ -20,16 +20,7 @@ public class Tetet {
             System.out.println(key+" ==> "+tm.get(key));
         }
         System.out.println("===================================");
-        //By using salary comparator (int comparison)
-//        TreeMap<Empl,String> trmap = new TreeMap<Empl, String>(new MySalaryComp());
-////        trmap.put(new Empl("Ram",3000), "RAM");
-////        trmap.put(new Empl("John",6000), "JOHN");
-////        trmap.put(new Empl("Crish",2000), "CRISH");
-////        trmap.put(new Empl("Tom",2400), "TOM");
-////        Set<Empl> ks = trmap.keySet();
-////        for(Empl key:ks){
-////            System.out.println(key+" ==> "+trmap.get(key));
-////        }
+
     }
 }
 
@@ -40,9 +31,7 @@ class MyNameComp implements Comparator<Empl>{
         return e1.getName().compareTo(e2.getName());
     }
 }
-
 class MySalaryComp implements Comparator<Empl>{
-
     @Override
     public int compare(Empl e1, Empl e2) {
         if(e1.getSalary() > e2.getSalary()){

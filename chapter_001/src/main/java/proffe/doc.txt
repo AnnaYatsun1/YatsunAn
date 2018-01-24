@@ -1,0 +1,52 @@
+CREATE TABLE public.users
+(
+  id integer NOT NULL DEFAULT nextval('users_id_seq'::regclass),
+  name character varying(200),
+  surname character varying(200),
+  CONSTRAINT users_pkey PRIMARY KEY (id)
+)
+cREATE TABLE public.role
+(
+  id integer NOT NULL DEFAULT nextval('role_id_seq'::regclass),
+  roles character varying(200),
+  superuser roles,
+  nosuperuser roles,
+  CONSTRAINT role_pkey PRIMARY KEY (id)
+)
+REATE TABLE public.roles
+(
+  id integer NOT NULL DEFAULT nextval('roles_id_seq'::regclass),
+  name character varying(200),
+  superuser name,
+  nosuperuser name,
+  CONSTRAINT roles_pkey PRIMARY KEY (id)
+)
+
+--create table users(
+--id serial primary key,
+-- name character varying(200),
+-- surname character varying(200),
+-- create_date timestamp
+
+--);
+--insert into users (name, surname, create_date) values ('Anna','Yatsun','2017-12-24 12:15:07' );
+--select * from users
+--create table item(
+--id serial primary  key,
+--price_for_order bigint,
+--prepayment bigint,
+--completion_date timestamp,
+--user_id integer REFERENCES users(id)
+--);
+--select * from item
+--create table comments(
+--id serial primary  key,
+--comment text,
+--comment_Id   INT REFERENCES item(id)
+--);
+--select * from commens
+create table attachs(
+id serial primary  key,
+number integer,
+item_Id   INT  REFERENCES item(id)
+);

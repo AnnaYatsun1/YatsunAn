@@ -4,7 +4,7 @@ package ru.job4j.list;
 
 import java.util.*;
 
-public class TreeExample<E>implements SimpleTree    {
+public class TreeExample<E, E1>implements SimpleTree    {
     Node<E> root;
     private Node parent;
     private Node children;
@@ -13,17 +13,33 @@ public class TreeExample<E>implements SimpleTree    {
 
     @Override
     public boolean add(Comparable parent, Comparable child) {
-      if( compare(node, parent) == 0) {
-
-          node.children.add(child);
-      }
-        return false;
+        return  true;
+//        Node<T1, T2> x = root, y = null;
+//        while (x != null) {
+//            int cmp = parent.compareTo(x.key);
+//            if (cmp == 0) {
+//                x.value = child;
+//                return;
+//            } else {
+//                y = x;
+//                if (cmp < 0) {
+//                    x = x.left;
+//                } else {
+//                    x = x.right;
+//                }
+//            }
+//        }
+//        Node<T1, T2> newNode = new Node<T1, T2>(parent, child);
+//        if (y == null) {
+//            root = newNode;
+//        } else {
+//            if (parent.compareTo(y.key) < 0) {
+//                y.left = newNode;
+//            } else {
+//                y.right = newNode;
+//            }
+//        }
     }
-
-//    private boolean compare(List<Node<E>> node, Comparable parent) {
-//        return  ;
-//    }
-
 
     @Override
     public Optional<Node<E>> findBy(Comparable value) {
