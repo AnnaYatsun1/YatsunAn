@@ -33,7 +33,6 @@ public class SimpleSeet implements SimpleContainer<String> {
 
         return null;
     }
-    ///
     @Override
     public Iterator<String> iterator() {
         return new Iterator<String>() {
