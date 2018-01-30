@@ -6,7 +6,7 @@ import java.util.*;
 
 public class SimpleSeet<E> implements SimpleContainer<E> {
   private   int lengh;
-   private int position=0;
+   private int position;
    private E[] mass ;
 
     public SimpleSeet(int lengh, int position, E[] mass) {
@@ -46,15 +46,17 @@ public class SimpleSeet<E> implements SimpleContainer<E> {
     public Iterator<E> iterator() {
         return new Iterator<E>() {
             @Override
-            public boolean hasNext() {
-
-                return mass.length>position;
-            }
+            public boolean hasNext () {
+               for (int i = position; i < mass.length; i++) {
+                    position = i;
+                    return true;
+                }
+    return false;
+        }
 
             @Override
             public E next() {
-                if(mass.length>position) {
-
+                if(hasNext()) {
                     return mass[position++];
                 }
                 throw new NoSuchElementException();
