@@ -35,7 +35,7 @@ public class NodeForMap<K,V> {
             current.next = entry;
         }
     }
-
+//
     public V get(K key) {
         int hash = Math.abs(key.hashCode() % BUCKET_ARRAY_SIZE);
         Node n = bucketArray[hash];
