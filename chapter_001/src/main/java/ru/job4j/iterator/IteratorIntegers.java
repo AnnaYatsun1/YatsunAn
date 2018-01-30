@@ -13,31 +13,25 @@ public class IteratorIntegers implements Iterator {
         this.numbers = numbers;
 
     }
-
-
-    @Override
-    public boolean hasNext() {
-        for (int i = 0; i < numbers.length; i++) {
-            if (isEven(i)) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
     private boolean isEven(int number) {
         return number % 2 == 0;
     }
 
     @Override
-    public Integer next() {
-        for (int i = 0; i < numbers.length; i++) {
-            if (isEven(i)) {
-                position = i + 1;
-                return this.numbers[i];
+    public boolean hasNext () {
+        for (int i = position; i < numbers.length; i++) {
+            if (isEven(numbers[i])) {
+                position = i;
+                return true;
             }
+        }
+        return false;
+    }
 
+    @Override
+    public Integer next () {
+        if (hasNext()) {
+            return this.numbers[position++];
         }
         throw new NoSuchElementException();
     }

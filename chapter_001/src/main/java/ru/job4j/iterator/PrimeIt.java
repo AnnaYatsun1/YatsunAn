@@ -23,23 +23,23 @@ public class PrimeIt implements Iterator {
 
     public boolean hasNext() {
         for (int i = position; i < numners.length; i++) {
-            if (!primeNumber(numners[i])) {
-                return false;
+            if (primeNumber(numners[i])) {
+                position = i;
+                return true;
             }
         }
-        return true;
+        return false;
     }
     ////
 
     public Integer next() {
-        for (int i = position; i < numners.length; i++) {
-            if (primeNumber(numners[i])) {
-                position = i+1;
-                return numners[i];
-            }
+        if (hasNext()) {
+            return this.numners[position++];
         }
+
         throw new NoSuchElementException();
     }
+
 
     public void remove() {
 

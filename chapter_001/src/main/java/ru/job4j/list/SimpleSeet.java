@@ -1,26 +1,23 @@
 package ru.job4j.list;
 
+import proffe.Tetet;
+
 import java.util.*;
 
-public class SimpleSeet implements SimpleContainer<String> {
+public class SimpleSeet<E> implements SimpleContainer<E> {
   private   int lengh;
    private int position=0;
-   private String[] mass = new String[lengh];
+   private E[] mass ;
 
-    public SimpleSeet(int lengh, int position, String[] mass) {
+    public SimpleSeet(int lengh, int position, E[] mass) {
         this.lengh = lengh;
         this.position = position;
         this.mass = mass;
     }
-    @Override
-    public void add(String item) {
-        if (!contains(item)) {
-            mass[position++] = item;
-        }
 
-    }
-    private boolean contains(String v) {
-        for (final String e : mass)
+
+    private boolean contains(E v) {
+        for (E e : mass)
             if (v != null && v.equals(e)) {
                 return true;
             }
@@ -28,21 +25,34 @@ public class SimpleSeet implements SimpleContainer<String> {
 
         return false;
     }
+
     @Override
-    public String get(int index) {
+    public void add(E item) {
+        if (!contains(item)) {
+            mass[position++] = item;
+        }
+
+    }
+
+
+
+
+    @Override
+    public E get(int index) {
 
         return null;
     }
     @Override
-    public Iterator<String> iterator() {
-        return new Iterator<String>() {
+    public Iterator<E> iterator() {
+        return new Iterator<E>() {
             @Override
             public boolean hasNext() {
+
                 return mass.length>position;
             }
 
             @Override
-            public String next() {
+            public E next() {
                 if(mass.length>position) {
 
                     return mass[position++];
@@ -50,10 +60,11 @@ public class SimpleSeet implements SimpleContainer<String> {
                 throw new NoSuchElementException();
 
             }
+
         };
     }
 
-    Set<String> set = new HashSet<String>(Arrays.asList(mass));
+    Set<E> set = new HashSet<E>(Arrays.asList(mass));
 
 }
 

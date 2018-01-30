@@ -4,17 +4,13 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.NoSuchElementException;
 
-public class LinkedHashSetIterator implements SimpleContainer<String> {
-    LinkedHashSet<String> linkedHashSet = new LinkedHashSet();
+public class LinkedHashSetIterator<K, V> implements SimpleContainer<String> {
+
 
     @Override
     public void add(String item) {
 
-        linkedHashSet.add(item);
-
-
     }
-
 
     @Override
     public String get(int index) {
@@ -23,27 +19,46 @@ public class LinkedHashSetIterator implements SimpleContainer<String> {
 
     @Override
     public Iterator<String> iterator() {
-        return new Iterator<String>() {
-
-            @Override
-            public boolean hasNext() {
-                for (int i = 0; i < linkedHashSet.size(); i++) {
-                    return true;
-
-                }
-                return false;
-            }
-
-            @Override
-            public String next() {
-                for (int i = 0; i < linkedHashSet.size(); i++) {
-                    return String.valueOf(linkedHashSet);
-                }
-
-                throw new NoSuchElementException();
-            }
-        };
+        return null;
     }
 
+    class Node<K, V> {
+
+        private K key;
+        private V value;
+        private NodeForMap.Node next;
+
+        public Node() {
+        }
+
+        public Node(K key, V value) {
+            this.key = key;
+            this.value = value;
+        }
+
+        public K getKey() {
+            return key;
+        }
+
+        public void setKey(K key) {
+            this.key = key;
+        }
+
+        public V getValue() {
+            return value;
+        }
+
+        public void setValue(V value) {
+            this.value = value;
+        }
+
+        public NodeForMap.Node getNext() {
+            return next;
+        }
+
+        public void setNext(NodeForMap.Node next) {
+            this.next = next;
+        }
+    }
 }
 

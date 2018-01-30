@@ -10,7 +10,7 @@ class TestArray<E> implements SimpleContainer<E> {
     private int pointer = 0;
     private int modCount;
     private int  lastRet;
-    private Object expectedModCount;
+
 
 
     @Override
@@ -37,10 +37,11 @@ class TestArray<E> implements SimpleContainer<E> {
 
         return new Iterator<E>() {
 
+
             //  int cursor = 0;
             int lastRet = -1;
 
-            int expectedModCount = modCount;
+          protected   int expectedModCount = modCount;
             @Override
             public boolean hasNext() {
                 return pointer != size();

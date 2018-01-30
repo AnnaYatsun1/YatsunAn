@@ -8,63 +8,59 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public class Tetet {
-    public static void main(String a[]){
-        //By using name comparator (String comparison)
-        TreeMap<Empl,String> tm = new TreeMap<Empl, String>(new MyNameComp());
-        tm.put(new Empl("Ram",3000), "RAM");
-        tm.put(new Empl("John",6000), "JOHN");
-        tm.put(new Empl("Crish",2000), "CRISH");
-        tm.put(new Empl("Tom",2400), "TOM");
-        Set<Empl> keys = tm.keySet();
-        for(Empl key:keys){
-            System.out.println(key+" ==> "+tm.get(key));
+    static class Node {
+        int row;
+        int col;
+        public Node(int row, int col) {
+            this.row = row;
+            this.col = col;
         }
-        System.out.println("===================================");
 
-    }
-}
+        @Override
+        public int hashCode() {
+            final int prime = 31;
+            int result = 1;
+            result = prime * result + col;
+            result = prime * result + row;
+            return result;
+        }
 
-class MyNameComp implements Comparator<Empl>{
-
-    @Override
-    public int compare(Empl e1, Empl e2) {
-        return e1.getName().compareTo(e2.getName());
-    }
-}
-class MySalaryComp implements Comparator<Empl>{
-    @Override
-    public int compare(Empl e1, Empl e2) {
-        if(e1.getSalary() > e2.getSalary()){
-            return 1;
-        } else {
-            return -1;
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj)
+                return true;
+            if (obj == null)
+                return false;
+            if (getClass() != obj.getClass())
+                return false;
+            Node other = (Node) obj;
+            if (col != other.col)
+                return false;
+            if (row != other.row)
+                return false;
+            return true;
         }
     }
-}
 
-class Empl{
+    public static void main(String args[]) {
+        Set<Node> nodes = new HashSet<Node>();
 
-    private String name;
-    private int salary;
+        //note 1, 2 are added 3 times, but only one should be staying in the set
+        nodes.add(new Node(1,2));
+        nodes.add(new Node(1,3));
+        nodes.add(new Node(1,4));
+        nodes.add(new Node(1,2));
+        nodes.add(new Node(2,1));
+        nodes.add(new Node(1,2));
+        nodes.add(new Node(1,5));
+        System.out.println(nodes.size());
 
-    public Empl(String n, int s){
-        this.name = n;
-        this.salary = s;
-    }
-
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public int getSalary() {
-        return salary;
-    }
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
-    public String toString(){
-        return "Name: "+this.name+"-- Salary: "+this.salary;
+        Iterator<Node> iterator = nodes.iterator();
+        Node n;
+        //As expected, the node with 1, 2 only show up once here when printing out all the nodes in the set
+        while(iterator.hasNext()) {
+            n = iterator.next();
+            System.out.println(n.row + " " + n.col);
+        }
     }
 }

@@ -43,7 +43,7 @@ public class AssociativeHashMap<K, V> {
         return l.iterator();
     }
 
-    class Node<K, V> {
+        class Node<K, V> {
 
         private int index;
 
