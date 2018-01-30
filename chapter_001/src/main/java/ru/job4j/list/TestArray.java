@@ -6,7 +6,7 @@ import static sun.plugin2.os.windows.OSVERSIONINFOA.size;
 
 class TestArray<E> implements SimpleContainer<E> {
     int INIT_SIZE =10 ;
-    protected Object[] array = (E[]) new Object[INIT_SIZE];
+    private  Object[] array = (E[]) new Object[INIT_SIZE];
     private int pointer = 0;
     private int modCount;
     private int  lastRet;
@@ -41,7 +41,7 @@ class TestArray<E> implements SimpleContainer<E> {
             //  int cursor = 0;
             int lastRet = -1;
 
-          protected   int expectedModCount = modCount;
+          private    int expectedModCount = modCount;
             @Override
             public boolean hasNext() {
                 return pointer != size();
