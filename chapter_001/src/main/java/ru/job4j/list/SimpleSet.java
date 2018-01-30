@@ -27,6 +27,7 @@ public class SimpleSet<E> implements SimpleContainer<E> {
     }
 
     public Iterator<E> iterator() {
+        ///
         return (Iterator<E>) new Iterator<Node>() {
             @Override
             public boolean hasNext() {
