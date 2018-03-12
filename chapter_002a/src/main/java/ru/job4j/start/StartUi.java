@@ -13,6 +13,7 @@ import java.util.Map;
  * Created by Анна on 10.10.2017.
  */
 public class StartUi {
+    //
     private Input input;
     private int[] ranges = new int[]{};
     private static final String ADD_NEW_ITEM = "0";
