@@ -76,7 +76,7 @@ public class SimpleSet<E> implements SimpleContainer<E> {
             if (getClass() != obj.getClass())
                 return false;
             Node other = (Node) obj;
-       ;
+            ;
             if (row != other.row)
                 return false;
             return true;
@@ -84,9 +84,6 @@ public class SimpleSet<E> implements SimpleContainer<E> {
     }
 
 
-
-
-  //  Set<String> set = new HashSet<>(al);
 
 
 }
