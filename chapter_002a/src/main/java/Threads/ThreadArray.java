@@ -12,6 +12,7 @@ public class ThreadArray<E> {
     private int pointer = 0;
     private int modCount;
     private int lastRet;
+    //
 
     public synchronized void add(final E item) {
         if (pointer == array.length - 1)
