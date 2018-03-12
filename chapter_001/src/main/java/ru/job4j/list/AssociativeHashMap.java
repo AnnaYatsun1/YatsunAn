@@ -42,8 +42,56 @@ public class AssociativeHashMap<K, V> {
         }
         return l.iterator();
     }
+    public V get(K key) {
+        Node curr = new Node(key);
 
-        class Node<K, V> {
+        int hashcode = curr.getHashCodeForKey(key);
+        int index = hashcode % size;
+        Node head = arr[index];
+        while (head != null) {
+            if (head.key == key) return (V) head.value;
+            head = head.next;
+        }
+        return null;
+
+    }
+    //
+    public boolean put(K key, V value) {
+        Node curr = new Node(key, value);
+        int hashcode = curr.getHashCodeForKey(key);
+        int index = hashcode & size;
+
+        Node head = arr[index];
+        while (head != null) {
+            if (head.key == key) return true;
+            head = head.next;
+
+        }
+        return false;
+    }
+
+//        if (arr[index] == null) {
+//            //  throw new NullPointerException("key == null");
+//            return false;
+//        } else {
+//            Node head = arr[index];
+//            curr.next = head;
+//            return true;
+//        }
+
+
+
+    public boolean delete(K key) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != null && arr[i].equals(key)) {
+                arr[i] = null;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    class Node<K, V> {
 
         private int index;
 
@@ -59,6 +107,10 @@ public class AssociativeHashMap<K, V> {
         public int hashCode() {
 
             return Objects.hash(key);
+        }
+
+        public Node(K key) {
+            this.key = key;
         }
 
         protected K key;
@@ -83,46 +135,6 @@ public class AssociativeHashMap<K, V> {
             int result = 7;
             return 31 * result + (key != null ? key.hashCode() : 0);
         }
-
-        public V get(K key) {
-
-            int hashcode = getHashCodeForKey(key);
-            int index = hashcode % size;
-            Node head = arr[index];
-            while (head != null) {
-                if (head.key == key) return (V) head.value;
-                head = head.next;
-            }
-            return null;
-
-        }
-//
-        public boolean put(K key, V value) {
-            Node curr = new Node(key, value);
-            int hashcode = getHashCodeForKey(key);
-            int index = hashcode & size;
-
-            if (arr[index] == null) {
-                //  throw new NullPointerException("key == null");
-                return false;
-            } else {
-                Node head = arr[index];
-                curr.next = head;
-                return true;
-            }
-
-        }
-
-        public boolean delete(K key) {
-            for (int i = 0; i < arr.length; i++) {
-                if (arr[i] != null && arr[i].equals(key)) {
-                    arr[i] = null;
-                    return true;
-                }
-            }
-            return false;
-        }
-
 
     }
 
